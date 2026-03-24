@@ -36,7 +36,7 @@ input {
 }
 
 button {
-  background: #4CAF50;
+  background: #46a5c8;
   color: white;
   padding: 10px;
   border: none;
@@ -45,7 +45,7 @@ button {
 }
 
 button:hover {
-  background: #45a049;
+  background: #349ac0;
 }
 
 .result {
@@ -59,7 +59,7 @@ button:hover {
 
 #copyBtn {
   margin-top: 15px;
-  background: #007BFF;
+  background: #46a5c8;
   color: white;
   padding: 10px;
   border: none;
@@ -68,5 +68,5 @@ button:hover {
 }
 
 #copyBtn:hover {
-  background: #0056b3;
+  background: #349ac0;
 }
