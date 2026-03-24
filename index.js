@@ -8,6 +8,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
+
 app.post("/api/generate", (req, res) => {
   const { paragraphs = 3 } = req.body;
   const text = loremIpsum({
