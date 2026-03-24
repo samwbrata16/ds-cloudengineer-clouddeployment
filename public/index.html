@@ -36,7 +36,7 @@
 
       const data = await response.json();
       resultDiv.innerHTML = data.text.split("\n").map(p => `<p>${p}</p>`).join("");
-      copyBtn.style.display = "inline-block"; // Show copy button
+      copyBtn.style.display = "inline-block"; 
     });
 
     copyBtn.addEventListener("click", () => {
