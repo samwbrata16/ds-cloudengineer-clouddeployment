@@ -24,11 +24,11 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Install Railway CLI
-        run: npm install -g railway
+      - name: Install Railway CLI (@railway/cli)
+        run: npm install -g @railway/cli
 
       - name: Deploy to Railway
         if: success() # Only deploy if tests pass
-        run: railway up --service lorem-ipsum-app --project ${{ secrets.RAILWAY_PROJECT_ID }}
+        run: railway deploy --service lorem-ipsum-app --project ${{ secrets.RAILWAY_PROJECT_ID }}
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
