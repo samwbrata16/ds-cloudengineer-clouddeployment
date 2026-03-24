@@ -29,6 +29,8 @@ jobs:
 
       - name: Deploy to Railway
         if: success()
-        run: railway deploy --project ${{ secrets.RAILWAY_PROJECT_ID }} --environment production
+        run: railway deploy
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          RAILWAY_PROJECT: ${{ secrets.RAILWAY_PROJECT }}
+          RAILWAY_ENVIRONMENT: production
