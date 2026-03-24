@@ -1,4 +1,4 @@
-name: Deploy to Railway
+name: Build, Test & Deploy to Railway
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy:
+  build-test-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,9 +21,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Run tests
+        run: npm test
+
+      - name: Install Railway CLI (@railway/cli)
+        run: npm install -g @railway/cli
+
       - name: Deploy to Railway
-        uses: railwayapp/railway-action@v1
-        with:
-          service: lorem-ipsum-app
-          project: ${{ secrets.RAILWAY_PROJECT_ID }}
-          token: ${{ secrets.RAILWAY_TOKEN }}
+        if: success() # Only deploy if tests pass
+        run: railway deploy
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
