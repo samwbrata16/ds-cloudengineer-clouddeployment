@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lorem Ipsum Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Lorem Ipsum Generator</h1>
+    <form id="loremForm">
+      <label for="paragraphs">Number of paragraphs:</label>
+      <input type="number" id="paragraphs" name="paragraphs" min="1" max="10" value="3">
+      <button type="submit">Generate</button>
+    </form>
+
+    <div id="result" class="result"></div>
+    <button id="copyBtn" style="display:none;">Copy to Clipboard</button>
+  </div>
+
+  <script>
+    const form = document.getElementById("loremForm");
+    const resultDiv = document.getElementById("result");
+    const copyBtn = document.getElementById("copyBtn");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const paragraphs = document.getElementById("paragraphs").value;
+
+      const response = await fetch("/api/generate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ paragraphs })
+      });
+
+      const data = await response.json();
+      resultDiv.innerHTML = data.text.split("\n").map(p => `<p>${p}</p>`).join("");
+      copyBtn.style.display = "inline-block"; // Show copy button
+    });
+
+    copyBtn.addEventListener("click", () => {
+      const text = resultDiv.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        copyBtn.textContent = "Copied!";
+        setTimeout(() => copyBtn.textContent = "Copy to Clipboard", 2000);
+      });
+    });
+  </script>
+</body>
+</html>
