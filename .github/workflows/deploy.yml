@@ -29,8 +29,8 @@ jobs:
 
       - name: Deploy to Railway
         if: success()
-        run: railway deploy
+        run: railway up
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-          RAILWAY_PROJECT: ${{ secrets.RAILWAY_PROJECT }}
-          RAILWAY_ENVIRONMENT: production
+          RAILWAY_PROJECT_ID: ${{ secrets.RAILWAY_PROJECT }}
+          RAILWAY_SERVICE_NAME: lorem-ipsum-app
