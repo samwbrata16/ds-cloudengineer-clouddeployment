@@ -19,6 +19,6 @@ app.post("/api/generate", (req, res) => {
   res.json({ text });
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
 });
