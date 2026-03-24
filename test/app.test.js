@@ -9,6 +9,9 @@ app.post("/api/generate", (req, res) => {
   const text = loremIpsum({ count: parseInt(paragraphs), units: "paragraphs", format: "plain" });
   res.json({ text });
 });
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
 
 describe("POST /api/generate", () => {
   it("should return lorem ipsum text", async () => {
