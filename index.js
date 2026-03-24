@@ -9,10 +9,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get("/health", (req, res) => {
-  res.status(200).send("OK");
-});
-
 app.post("/api/generate", (req, res) => {
   const { paragraphs = 3 } = req.body;
   const text = loremIpsum({
@@ -23,10 +19,6 @@ app.post("/api/generate", (req, res) => {
   res.json({ text });
 });
 
-if (require.main === module) {
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on port ${PORT}`);
-  });
-}
-
-module.exports = app;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
