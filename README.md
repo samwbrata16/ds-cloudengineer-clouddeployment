@@ -19,11 +19,16 @@ This project is configured with CI/CD using GitHub Actions to automatically buil
 
 ds-cloudengineer-clouddeployment/
 │── public/
-│   ├── index.html      
+│   ├── index.html
+│   │  
 │   └── style.css
+│ 
 │── test/
+│   │ 
 │   └── app.test.js 
+│ 
 │── .github/workflows/   
+│   │ 
 │   └── deploy.yml    
 │── index.js       
 │── server.js            
