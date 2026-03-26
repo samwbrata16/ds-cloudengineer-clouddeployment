@@ -17,23 +17,20 @@ This project is configured with CI/CD using GitHub Actions to automatically buil
 
 ### Project Structure
 
+```
 ds-cloudengineer-clouddeployment/
 │── public/
 │   ├── index.html
-│   │  
 │   └── style.css
-│ 
 │── test/
-│   │ 
 │   └── app.test.js 
-│ 
 │── .github/workflows/   
-│   │ 
 │   └── deploy.yml    
 │── index.js       
 │── server.js            
 │── package.json         
-│── README.md        
+│── README.md
+```  
 
 ## Getting Started
 
@@ -52,6 +49,7 @@ ds-cloudengineer-clouddeployment/
 Install dependencies:
 ```bash
 npm install express
+
 npm install --save-dev jest 
 ```
 Create server.js:
@@ -100,14 +98,11 @@ Create package.json:
 ```
 ### Local development
 ```bash
-# Clone repository
 git clone https://github.com/samwbrata16/ds-cloudengineer-clouddeployment.git
 cd ds-cloudengineer-clouddeployment
 
-# Install dependencies
 npm install
 
-# Run locally
 npm start
 ```
 Visit http://localhost:3000 in your browser.
