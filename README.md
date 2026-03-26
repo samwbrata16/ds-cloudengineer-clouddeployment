@@ -30,6 +30,7 @@ ds-cloudengineer-clouddeployment/
 │── server.js            
 │── package.json         
 │── README.md
+│── Project_Links_and_Screenshots.pdf
 ```  
 
 ## Getting Started
@@ -175,3 +176,6 @@ Use the Service Metrics tab in Railway to monitor:
 Switch between Replica view (per container) and Sum view (aggregate). The /health endpoint ensures Railway can track service availability.
 
 Use the Logs tab in Railway to monitor logs.
+
+## Links and Screenshots 
+Links and Screenshots for Digital Skola Cloud Engineer Bootcamp's final project are attached in the Project_Links_and_Screenshots.pdf file.
